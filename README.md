@@ -53,16 +53,29 @@ php frompt.php . --ignore=classes,config --depth=1
 
 ## 🖥️ Sample Output
 
-Running a command like `php frompt.php . --ignore=classes,config --depth=1` will render:
+Running a command like `php frompt.php . --depth=3 --ignore=classes` will render:
 ```txt
-my-project/
+burauenbiblio-analytics/
 ├── 📙 README.md
 ├── 📁 api
+│   ├── 📙 attendance_api.php
+│   ├── 📙 circulation_api.php
+│   ├── 📙 collection_api.php
+│   └── 📙 ddc_api.php
 ├── 📁 assets
+│   ├── 📁 css
+│   │   └── 📙 style.css
+│   └── 📁 js
+│       ├── 📙 chart.js
+│       ├── 📙 dashboard.js
+│       ├── 📙 highcharts.js
+│       ├── 📙 jquery-3.6.0.min.js
+│       └── 📙 jquery.highchartTable.js
 ├── 📙 autoload.php
+├── 📁 config
+│   └── 📙 dbParams.php
 ├── 📙 frompt.php
 └── 📙 index.php
-
 ```
 ---
 
