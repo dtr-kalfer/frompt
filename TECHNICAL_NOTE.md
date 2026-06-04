@@ -1,8 +1,10 @@
 # Technical Note: frompt — An Optimized, Low-Footprint Directory Tree Metadata Generator for LLM Context Window Ingestion
 
 **Author:** Ferdinand Tumulak
+
 **Repository:** https://github.com/dtr-kalfer/frompt
 
+**DOI:** https://doi.org/10.5281/zenodo.20541540
 
 ## Abstract
 
@@ -87,4 +89,4 @@ The system condensed a sprawling folder layout into a highly compact, structured
 
 `frompt` provides a minimalist, robust, and highly secure bridge for moving codebase architecture context into generative AI pipelines. By solving the multi-byte character corruption and container clipboard isolation barriers via OSC 52, it optimizes data-gathering efficiency for software engineers and AI prompt researchers alike.
 
-The source code is open-source, licensed under the MIT License.
+The source code is open-source, licensed under the MIT License, and permanently archived on Zenodo at the DOI noted above.
