@@ -6,6 +6,7 @@
 
 **DOI:** https://doi.org/10.5281/zenodo.20541540
 
+
 ## Abstract
 
 As Generative Artificial Intelligence (AI) and Large Language Models (LLMs) become deeply integrated into software engineering research and academic workflows, providing models with accurate repository context remains a critical bottleneck. Standard directory mapping utilities frequently rely on heavy, non-portable host dependencies or generate outputs that break UTF-8 formatting when transferred across isolated network boundaries (e.g., Docker containers, remote SSH sessions). This paper introduces `frompt` (Folder Prompt Tree), a native, zero-dependency PHP Command Line Interface (CLI) utility optimized explicitly for LLM context ingestion. `frompt` automatically handles terminal-agnostic clipboard synchronizations (including OSC 52 fallbacks) and standardizes code block encapsulation to maximize prompt structural integrity while minimizing token consumption.
