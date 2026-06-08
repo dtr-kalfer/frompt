@@ -144,7 +144,7 @@ for ($i = 1; $i < $argc; $i++) {
     } elseif ($arg === '--folderonly') {
         $folderOnly = true;
     } elseif ($arg === '--help' || $arg === '-h') {
-        echo "Usage: fppt.php [directory] [--depth=N] [--ignore=dir1,*.ext] [--folderonly] [--copy]\n";
+        echo "Usage: frompt.php [directory] [--depth=N] [--ignore=dir1,*.ext] [--folderonly] [--copy]\n";
         exit(0);
     } else {
         $folder = $arg;
