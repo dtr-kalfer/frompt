@@ -64,7 +64,25 @@ php frompt.php . --folderonly
 
 ## 🖥️ Sample Output
 
-Running a command like `php frompt.php . --depth=3 --ignore=classes` will render:
+`C:\wamp64\www\burauenbiblio-analytics>php frompt.php . --ignore=*.php,classes`
+
+```txt
+burauenbiblio-analytics/
+├── 📙 README.md
+├── 📁 api
+├── 📁 assets
+│   ├── 📁 css
+│   │   └── 📙 style.css
+│   └── 📁 js
+│       ├── 📙 chart.js
+│       ├── 📙 dashboard.js
+│       ├── 📙 highcharts.js
+│       ├── 📙 jquery-3.6.0.min.js
+│       └── 📙 jquery.highchartTable.js
+└── 📁 config
+```
+
+`C:\wamp64\www\burauenbiblio-analytics>php frompt.php . --ignore=*.js,config`
 ```txt
 burauenbiblio-analytics/
 ├── 📙 README.md
@@ -77,17 +95,22 @@ burauenbiblio-analytics/
 │   ├── 📁 css
 │   │   └── 📙 style.css
 │   └── 📁 js
-│       ├── 📙 chart.js
-│       ├── 📙 dashboard.js
-│       ├── 📙 highcharts.js
-│       ├── 📙 jquery-3.6.0.min.js
-│       └── 📙 jquery.highchartTable.js
 ├── 📙 autoload.php
-├── 📁 config
-│   └── 📙 dbParams.php
+├── 📁 classes
+│   ├── 📁 Circ_Analytics
+│   │   └── 📙 Circ_Analytics.php
+│   ├── 📙 ConnectDB.php
+│   ├── 📁 DDC
+│   │   └── 📙 DDCAnalytics.php
+│   ├── 📁 LibraryAttendance
+│   │   └── 📙 Attendance.php
+│   └── 📁 LibraryCollection
+│       ├── 📙 CollectionAnalytics.php
+│       └── 📙 index.html
 ├── 📙 frompt.php
 └── 📙 index.php
 ```
+
 ---
 
 ## ⚙️ Argument & Options Syntax
