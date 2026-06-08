@@ -63,6 +63,10 @@ php frompt.php . --folderonly
 ---
 
 ## 🖥️ Sample Output
+### Usage
+```txt
+Usage: frompt.php [directory] [--depth=N] [--ignore=dir1,*.ext] [--folderonly] [--copy]
+```
 
 `C:\wamp64\www\burauenbiblio-analytics>php frompt.php . --ignore=*.php,classes`
 
