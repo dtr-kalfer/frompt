@@ -1,6 +1,5 @@
 [![DOI](https://zenodo.org/badge/1256659125.svg)](https://doi.org/10.5281/zenodo.20541540)
 
-
 # frompt (Folder Prompt Tree)
 
 An AI-prompt-optimized directory tree generator written in native PHP. 
@@ -40,7 +39,7 @@ Generate a standard tree view of your current directory:
 ```sh
 php frompt.php .
 ```
-### 2. Limit Depth & Ignore Directories with wildcard (*) support (Recommended for AI Prompts)
+### 2. Limit Depth & Ignore Directories with wildcard (\*) support (Recommended for AI Prompts)
 
 Perfect for scanning the surface layer of a project while stripping away vendor folders and deep dependency trees to save prompt tokens:
 ```sh
@@ -121,14 +120,14 @@ burauenbiblio-analytics/
 
 The argument parser is completely order-agnostic, meaning you can place the folder path at the beginning, middle, or end of your flags.
 
-| **Option**           | **Syntax Example**         | **Description**                                                         |
-| -------------------- | -------------------------- | ----------------------------------------------------------------------- |
-| **Target Directory** | `.` or `path/to/folder`    | The root folder you want to map. Defaults to `.` if left out.           |
-| `--depth`            | `--depth=2` or `--depth 2` | Maximum folder depth recursion level.                                   |
-| `--ignore`           | `--ignore=dir1,file2,*.ext`| Comma-separated list (no spaces) of items to hide from the output tree. Supports (*) wildcard for chosen extension i.e. *.jpg, *.md|
-| `--copy`             | `--copy`                   | Triggers the multi-platform clipboard mechanism.                        |
-| `--help`, `-h`       | `--help`                   | Displays usage instructions.                                            |
-| `--folderonly`       | `--folderonly`             | Displays the structural backbone of the path.                           |
+| **Option**           | **Syntax Example**          | **Description**                                                                                                                        |
+| -------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Target Directory** | `.` or `path/to/folder`     | The root folder you want to map. Defaults to `.` if left out.                                                                          |
+| `--depth`            | `--depth=2` or `--depth 2`  | Maximum folder depth recursion level.                                                                                                  |
+| `--ignore`           | `--ignore=dir1,file2,*.ext` | Comma-separated list (no spaces) of items to hide from the output tree. Supports (\*) wildcard for chosen extension i.e. \*.jpg, \*.md |
+| `--copy`             | `--copy`                    | Triggers the multi-platform clipboard mechanism.                                                                                       |
+| `--help`, `-h`       | `--help`                    | Displays usage instructions.                                                                                                           |
+| `--folderonly`       | `--folderonly`              | Displays the structural backbone of the path.                                                                                          |
 
 ---
 
@@ -156,8 +155,8 @@ This project was created to help developers improve their AI related workflows.
 
 ---
 
-*frompt (Folder Prompt Tree)
+frompt (Folder Prompt Tree)
 
 Copyright (c) 2026 Ferdinand Tumulak
 
-License: MIT*
+License: MIT
