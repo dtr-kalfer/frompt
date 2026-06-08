@@ -1,10 +1,7 @@
 #!/usr/bin/env php
 <?php
-	/* This file is part of a copyrighted work; 
-	it is distributed with NO WARRANTY. --F.Tumulak
-	 */
-	 
-function buildTree($dir, $prefix = "", $depth = 0, $maxDepth = null, $ignoreList = [])
+
+function buildTree($dir, $prefix = "", $depth = 0, $maxDepth = null, $ignoreList = [], $folderOnly = false)
 {
     if (!is_dir($dir)) {
         return "❌ Invalid directory: $dir\n";
@@ -21,9 +18,17 @@ function buildTree($dir, $prefix = "", $depth = 0, $maxDepth = null, $ignoreList
     
     $files = array_diff($files, [".", ".."]);
 
+    // Filter out ignored folders/files
     if (!empty($ignoreList)) {
         $files = array_filter($files, function ($file) use ($ignoreList) {
             return !in_array($file, $ignoreList);
+        });
+    }
+
+    // Filter out files completely if --folderonly flag is active
+    if ($folderOnly) {
+        $files = array_filter($files, function ($file) use ($dir) {
+            return is_dir($dir . DIRECTORY_SEPARATOR . $file);
         });
     }
 
@@ -48,9 +53,11 @@ function buildTree($dir, $prefix = "", $depth = 0, $maxDepth = null, $ignoreList
                 $newPrefix,
                 $depth + 1,
                 $maxDepth,
-                $ignoreList
+                $ignoreList,
+                $folderOnly
             );
         } else {
+            // This fallback block will only run if $folderOnly is false
             $output .= $prefix . $connector . "📙 " . $file . PHP_EOL;
         }
     }
@@ -93,8 +100,7 @@ function copyToClipboard($text)
     }
     
     // 3. Desktop Linux Environments (with a GUI)
-		if ($os === 'LIN') {
-        // Appending 2>/dev/null silences the "not found" shell warnings
+    if ($os === 'LIN') {
         foreach (['xclip -selection clipboard 2>/dev/null', 'xsel -b 2>/dev/null'] as $clipCmd) {
             $process = @popen($clipCmd, 'w');
             if (is_resource($process)) {
@@ -106,7 +112,6 @@ function copyToClipboard($text)
     }
 
     // 4. Fallback: Headless Linux / Docker Container / SSH Session
-    // Emits an OSC 52 sequence. Your terminal emulator handles copying it to your local machine.
     echo "\e]52;c;" . base64_encode($text) . "\a";
     return true;
 }
@@ -117,6 +122,7 @@ $folder = '.';
 $maxDepth = null;
 $ignoreList = [];
 $copyToClipboard = false;
+$folderOnly = false;
 
 for ($i = 1; $i < $argc; $i++) {
     $arg = $argv[$i];
@@ -131,8 +137,10 @@ for ($i = 1; $i < $argc; $i++) {
         $ignoreList = isset($argv[$i + 1]) ? explode(',', $argv[++$i]) : [];
     } elseif ($arg === '--copy') {
         $copyToClipboard = true;
+    } elseif ($arg === '--folderonly') {
+        $folderOnly = true;
     } elseif ($arg === '--help' || $arg === '-h') {
-        echo "Usage: fppt.php [directory] [--depth=N] [--ignore=dir1,file2] [--copy]\n";
+        echo "Usage: fppt.php [directory] [--depth=N] [--ignore=dir1,file2] [--folderonly] [--copy]\n";
         exit(0);
     } else {
         $folder = $arg;
@@ -149,7 +157,7 @@ if (!$realPath || !is_dir($realPath)) {
 
 $treeOutput = "```txt" . PHP_EOL;
 $treeOutput .= basename($realPath) . "/" . PHP_EOL;
-$treeOutput .= buildTree($realPath, "", 0, $maxDepth, $ignoreList);
+$treeOutput .= buildTree($realPath, "", 0, $maxDepth, $ignoreList, $folderOnly);
 $treeOutput .= "```" . PHP_EOL;
 
 // Display to terminal
