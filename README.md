@@ -53,7 +53,7 @@ Append the `--copy` flag to save the output straight to your host system clipboa
 php frompt.php . --ignore=classes,config --depth=1
 ```
 
-### 3. Folder only display
+### 4. Folder only display
 
 Append the `--folderonly` flag to display folder structures, ignoring all files.:
 ```sh
