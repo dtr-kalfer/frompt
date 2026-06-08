@@ -52,6 +52,14 @@ Append the `--copy` flag to save the output straight to your host system clipboa
 ```sh
 php frompt.php . --ignore=classes,config --depth=1
 ```
+
+### 3. Folder only display
+
+Append the `--folderonly` flag to display folder structures, ignoring all files.:
+```sh
+php frompt.php . --folderonly
+```
+
 ---
 
 ## 🖥️ Sample Output
@@ -93,6 +101,7 @@ The argument parser is completely order-agnostic, meaning you can place the fold
 | `--ignore`           | `--ignore=dir1,file2`      | Comma-separated list (no spaces) of items to hide from the output tree. |
 | `--copy`             | `--copy`                   | Triggers the multi-platform clipboard mechanism.                        |
 | `--help`, `-h`       | `--help`                   | Displays usage instructions.                                            |
+| `--folderonly`       | `--folderonly`             | Displays the structural backbone of the path.                           |
 
 ---
 
