@@ -18,10 +18,15 @@ function buildTree($dir, $prefix = "", $depth = 0, $maxDepth = null, $ignoreList
     
     $files = array_diff($files, [".", ".."]);
 
-    // Filter out ignored folders/files
+    // Filter out ignored folders/files (Now supports wildcards like *.php)
     if (!empty($ignoreList)) {
         $files = array_filter($files, function ($file) use ($ignoreList) {
-            return !in_array($file, $ignoreList);
+            foreach ($ignoreList as $pattern) {
+                if (fnmatch($pattern, $file)) {
+                    return false; // Exclude it if it matches any pattern
+                }
+            }
+            return true;
         });
     }
 
@@ -57,7 +62,6 @@ function buildTree($dir, $prefix = "", $depth = 0, $maxDepth = null, $ignoreList
                 $folderOnly
             );
         } else {
-            // This fallback block will only run if $folderOnly is false
             $output .= $prefix . $connector . "📙 " . $file . PHP_EOL;
         }
     }
@@ -140,7 +144,7 @@ for ($i = 1; $i < $argc; $i++) {
     } elseif ($arg === '--folderonly') {
         $folderOnly = true;
     } elseif ($arg === '--help' || $arg === '-h') {
-        echo "Usage: fppt.php [directory] [--depth=N] [--ignore=dir1,file2] [--folderonly] [--copy]\n";
+        echo "Usage: fppt.php [directory] [--depth=N] [--ignore=dir1,*.ext] [--folderonly] [--copy]\n";
         exit(0);
     } else {
         $folder = $arg;

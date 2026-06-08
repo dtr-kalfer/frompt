@@ -129,5 +129,8 @@ This project was created to help developers improve their AI related workflows.
 
 ---
 
-*frompt (Folder Prompt Tree)*
-*Copyright (c) 2026 Ferdinand Tumulak / License: MIT*
+*frompt (Folder Prompt Tree)
+
+Copyright (c) 2026 Ferdinand Tumulak
+
+License: MIT*

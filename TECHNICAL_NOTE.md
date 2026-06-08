@@ -36,8 +36,9 @@ When using LLMs for codebase analysis, automated code generation, or structural 
 
 - **Depth Control:** A strict recursion counter matches the current folder depth against a user-defined threshold (`--depth=N`), instantly halting sub-tree execution once the threshold is met.
     
-- **Exclusion Filtering:** Array-level diffing discards specified directories (e.g., `.git`, configuration files) early in the execution cycle, minimizing memory overhead and ensuring only high-value structural context is compiled.
+- **Exclusion Filtering:** Array-level diffing discards specified directories, now with wildcard support. (e.g., `.git`, `*.jpg` configuration files) early in the execution cycle, minimizing memory overhead and ensuring only high-value structural context is compiled.
     
+- **Folder Only Option:** Use `--folderonly` Show only the folder structure.
 
 ### 2.2. Markdown Encapsulation Sequence
 
